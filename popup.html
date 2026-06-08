@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lensly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <header class="lensly-header">
+    <div class="lensly-logo">
+      <div class="lensly-logo-icon"><img src="assets/icon128.png" alt="Lensly" /></div>
+      <div class="lensly-logo-text">
+        <span class="lensly-wordmark">Lensly</span>
+        <span class="lensly-tagline">Accessibility &amp; AI Assistant</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="lensly-tabs">
+    <button class="tab-btn active" data-tab="tools">Tools</button>
+    <button class="tab-btn" data-tab="email">Email</button>
+    <button class="tab-btn" data-tab="sheets">Sheets</button>
+    <button class="tab-btn" data-tab="settings">Settings</button>
+  </div>
+
+  <!-- ═══════ TOOLS TAB ═══════ -->
+  <div class="lensly-content tab-panel" id="tab-tools">
+    <section class="lensly-section"><h2 class="lensly-section-label">Reading</h2>
+      <div class="lensly-card"><div class="lensly-row"><div class="lensly-info"><div class="lensly-name">Reader View</div><div class="lensly-desc">Distraction-free layout <kbd>Ctrl+Shift+Q</kbd></div></div><label class="lensly-toggle"><input type="checkbox" id="toggle-reader" /><span class="track"></span></label></div></div>
+      <div class="lensly-card"><div class="lensly-row"><div class="lensly-info"><div class="lensly-name">Bionic Reading</div><div class="lensly-desc">Bold word stems for speed</div></div><label class="lensly-toggle"><input type="checkbox" id="toggle-bionic" /><span class="track"></span></label></div></div>
+      <div class="lensly-card"><div class="lensly-row"><div class="lensly-info"><div class="lensly-name">Reading Ruler</div><div class="lensly-desc">Guide follows cursor</div></div><label class="lensly-toggle"><input type="checkbox" id="toggle-ruler" /><span class="track"></span></label></div>
+        <div class="lensly-expand" id="ruler-settings">
+          <div class="lensly-slider-row"><label class="lensly-label">Height <span id="ruler-height-val">40px</span></label><input type="range" id="ruler-height" min="20" max="100" value="40" class="lensly-range" /></div>
+          <div class="lensly-slider-row"><label class="lensly-label">Opacity <span id="ruler-opacity-val">15%</span></label><input type="range" id="ruler-opacity" min="5" max="60" value="15" class="lensly-range" /></div>
+          <div><label class="lensly-label" style="margin-bottom:6px">Colour</label><div class="lensly-chips" id="ruler-color-chips"><button class="chip active" data-color="#6096ba">Blue</button><button class="chip" data-color="#f5d76e">Yellow</button><button class="chip" data-color="#f97316">Orange</button><button class="chip" data-color="#86efac">Green</button><button class="chip" data-color="#f9a8d4">Pink</button><button class="chip" data-color="#ffffff">White</button></div></div>
+        </div>
+      </div>
+      <div class="lensly-card"><div class="lensly-row"><div class="lensly-info"><div class="lensly-name">Dyslexia Font</div><div class="lensly-desc">Optimised typeface</div></div><label class="lensly-toggle"><input type="checkbox" id="toggle-font" /><span class="track"></span></label></div><div class="lensly-expand" id="font-settings"><div class="lensly-chips" id="font-chips"><button class="chip" data-font="opendyslexic">OpenDyslexic</button><button class="chip" data-font="lexend">Lexend</button><button class="chip" data-font="atkinson">Atkinson</button></div></div></div>
+      <div class="lensly-card"><div class="lensly-name" style="margin-bottom:10px">Text Spacing</div>
+        <div class="lensly-slider-row"><label class="lensly-label">Word Spacing <span id="word-spacing-val">0px</span></label><input type="range" id="word-spacing" min="0" max="16" value="0" class="lensly-range" /></div>
+        <div class="lensly-slider-row"><label class="lensly-label">Line Height <span id="line-height-val">Default</span></label><input type="range" id="line-height" min="0" max="30" value="0" class="lensly-range" /></div>
+      </div>
+      <div class="lensly-card"><div class="lensly-row"><div class="lensly-info"><div class="lensly-name">Text Size</div><div class="lensly-desc">Scale text</div></div><span id="text-scale-val" class="lensly-badge">100%</span></div><div class="lensly-scale-controls"><button class="scale-btn" id="scale-down">A-</button><input type="range" id="text-scale" min="60" max="200" value="100" step="5" class="lensly-range" /><button class="scale-btn" id="scale-up">A+</button><button class="scale-btn scale-reset" id="scale-reset">Reset</button></div></div>
+    </section>
+    <section class="lensly-section"><h2 class="lensly-section-label">Focus</h2>
+      <div class="lensly-card"><div class="lensly-row"><div class="lensly-info"><div class="lensly-name">Focus Spotlight</div><div class="lensly-desc">Dim page except cursor <kbd>Alt+Shift+F</kbd></div></div><label class="lensly-toggle"><input type="checkbox" id="toggle-focus" /><span class="track"></span></label></div></div>
+    </section>
+    <section class="lensly-section"><h2 class="lensly-section-label">Visual</h2>
+      <div class="lensly-card"><div class="lensly-row"><div class="lensly-info"><div class="lensly-name">Dark Mode</div><div class="lensly-desc">Invert colours for night reading</div></div><label class="lensly-toggle"><input type="checkbox" id="toggle-darkmode" /><span class="track"></span></label></div></div>
+      <div class="lensly-card"><div class="lensly-row"><div class="lensly-info"><div class="lensly-name">Sensory Tint</div><div class="lensly-desc">Colour overlay</div></div><label class="lensly-toggle"><input type="checkbox" id="toggle-tint" /><span class="track"></span></label></div><div class="lensly-expand" id="tint-settings"><div class="lensly-swatches" id="tint-swatches"><button class="swatch" data-tint="blue" style="background:#6096ba"></button><button class="swatch" data-tint="icy" style="background:#a3cef1"></button><button class="swatch" data-tint="green" style="background:#8bc4a8"></button><button class="swatch" data-tint="rose" style="background:#e8b4b8"></button><button class="swatch" data-tint="gray" style="background:#9aacb8"></button></div><div class="lensly-slider-row"><label class="lensly-label">Intensity <span id="tint-opacity-val">15%</span></label><input type="range" id="tint-opacity" min="5" max="50" value="15" class="lensly-range" /></div></div></div>
+      <div class="lensly-card"><div class="lensly-row"><div class="lensly-info"><div class="lensly-name">High Contrast</div><div class="lensly-desc">Max visibility</div></div><label class="lensly-toggle"><input type="checkbox" id="toggle-contrast" /><span class="track"></span></label></div><div class="lensly-expand" id="contrast-settings"><div class="lensly-chips"><button class="chip chip-dark" data-contrast="dark">Dark Shield</button><button class="chip chip-light" data-contrast="light">Light Definer</button></div></div></div>
+    </section>
+    <section class="lensly-section"><h2 class="lensly-section-label">Audio</h2>
+      <div class="lensly-card"><div class="lensly-name" style="margin-bottom:12px">Text to Speech</div>
+        <div class="lensly-tts-btns"><button class="tts-btn" id="tts-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button><button class="tts-btn" id="tts-pause" disabled><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg></button><button class="tts-btn" id="tts-resume" disabled><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg></button><button class="tts-btn tts-stop" id="tts-stop" disabled><svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12"/></svg></button></div>
+        <div class="lensly-slider-row" style="margin-top:12px"><label class="lensly-label">Speed <span id="tts-speed-val">1.0x</span></label><input type="range" id="tts-speed" min="0.5" max="3" step="0.1" value="1.0" class="lensly-range" /></div>
+        <div class="lensly-slider-row"><label class="lensly-label">Pitch <span id="tts-pitch-val">1.0</span></label><input type="range" id="tts-pitch" min="0.5" max="2" step="0.1" value="1.0" class="lensly-range" /></div>
+        <div class="lensly-slider-row"><label class="lensly-label" style="margin-bottom:5px">Voice</label><select id="tts-voice" class="lensly-select"></select></div>
+      </div>
+    </section>
+    <section class="lensly-section"><h2 class="lensly-section-label">AI Summary</h2>
+      <div class="lensly-card"><div class="lensly-desc" style="margin-bottom:12px">Summarise this page.</div><div class="lensly-summary-grid"><button class="sum-btn" data-length="short">Short <span>3</span></button><button class="sum-btn" data-length="medium">Medium <span>5</span></button><button class="sum-btn" data-length="detailed">Detailed <span>10</span></button><button class="sum-btn" data-length="full">Full <span>20</span></button></div></div>
+    </section>
+    <section class="lensly-section"><h2 class="lensly-section-label">Highlights</h2>
+      <div class="lensly-card"><div class="lensly-desc" style="margin-bottom:10px">Select text, right-click, "Highlight &amp; Save to Lensly".</div><button class="lensly-full-btn" id="btn-show-highlights">View Saved Highlights</button></div>
+    </section>
+    <section class="lensly-section"><h2 class="lensly-section-label">Page Chatbot</h2>
+      <div class="lensly-card"><div class="lensly-row"><div class="lensly-info"><div class="lensly-name">Enable Chatbot</div><div class="lensly-desc">Floating assistant. Off by default.</div></div><label class="lensly-toggle"><input type="checkbox" id="toggle-chatbot" /><span class="track"></span></label></div></div>
+    </section>
+  </div>
+
+  <!-- ═══════ EMAIL TAB ═══════ -->
+  <div class="lensly-content tab-panel" id="tab-email" style="display:none">
+    <div class="lensly-tab-intro">
+      <div class="lensly-tab-intro-title">Email Intelligence</div>
+      <div class="lensly-tab-intro-desc">Open Gmail or Outlook, then use these tools. Works offline — no API key needed for most features.</div>
+    </div>
+
+    <section class="lensly-section">
+      <h2 class="lensly-section-label">Tools</h2>
+      <div class="lensly-card"><button class="lensly-feature-btn" id="email-categorize"><div class="lfb-title">Categorize Emails</div><div class="lfb-desc">Sort inbox into Work, Personal, Finance, Shopping, etc.</div></button></div>
+      <div class="lensly-card"><button class="lensly-feature-btn" id="email-priority"><div class="lfb-title">Priority Detection</div><div class="lfb-desc">Rate each email as High, Medium, or Low</div></button></div>
+      <div class="lensly-card"><button class="lensly-feature-btn" id="email-followup"><div class="lfb-title">Follow-Up Reminders</div><div class="lfb-desc">Find emails that need a response</div></button></div>
+      <div class="lensly-card"><button class="lensly-feature-btn" id="email-insights"><div class="lfb-title">AI Insights</div><div class="lfb-desc">Open the AI Insights dashboard for automated summaries and drafting</div></button></div>
+    </section>
+  </div>
+
+  <!-- ═══════ SHEETS TAB ═══════ -->
+  <div class="lensly-content tab-panel" id="tab-sheets" style="display:none">
+    <div class="lensly-tab-intro">
+      <div class="lensly-tab-intro-title">Spreadsheet Assistant</div>
+      <div class="lensly-tab-intro-desc">On Google Sheets or Excel Online, a Lensly toolbar appears automatically at the top. You can use it to toggle the cell tracker or get AI formula suggestions directly on the sheet.</div>
+    </div>
+
+    <section class="lensly-section">
+      <h2 class="lensly-section-label">Tools</h2>
+      <div class="lensly-card"><button class="lensly-feature-btn" id="sheet-analytics"><div class="lfb-title">Charts and Analytics</div><div class="lfb-desc">Statistics, distribution, chart recommendations</div></button></div>
+    </section>
+
+    <section class="lensly-section">
+      <h2 class="lensly-section-label">Manual Data Input</h2>
+      <div class="lensly-card">
+        <div class="lensly-desc" style="margin-bottom:8px">Not on a spreadsheet? Paste CSV or tab-separated data:</div>
+        <textarea id="sheet-data-input" class="lensly-textarea" rows="4" placeholder="Paste rows here..."></textarea>
+        <div class="lensly-flex-row" style="margin-top:8px"><button class="lensly-sm-btn" id="sheet-data-save">Load Data</button><span id="sheet-data-status" class="lensly-sm-status"></span></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════ SETTINGS TAB ═══════ -->
+  <div class="lensly-content tab-panel" id="tab-settings" style="display:none">
+    <section class="lensly-section"><h2 class="lensly-section-label">Groq API Key</h2>
+      <div class="lensly-card">
+        <div class="lensly-desc" style="margin-bottom:10px">Only needed for AI features (Summary, Chatbot, AI email/sheet tools). Get a free key at <a href="https://console.groq.com/keys" target="_blank" class="lensly-link">console.groq.com</a>.</div>
+        <div class="lensly-key-row"><input type="password" id="groq-key-input" class="lensly-key-input" placeholder="Paste your Groq API key" autocomplete="off" /><button id="groq-key-toggle" class="lensly-key-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+        <button id="groq-key-save" class="lensly-save-btn">Save Key</button>
+        <div id="groq-key-status" class="lensly-key-status"></div>
+      </div>
+    </section>
+    <section class="lensly-section"><h2 class="lensly-section-label">About</h2><div class="lensly-card"><div class="lensly-desc">Your All-in-One Productivity Extension<br><br>Manage emails, organize spreadsheets, automate tasks, and gain insights from your data—all in a single extension.</div></div></section>
+  </div>
+
+  <footer class="lensly-footer">Lensly- Made with love at HPCL</footer>
+  <script src="popup.js"></script>
+</body>
+</html>
